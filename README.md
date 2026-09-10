@@ -23,7 +23,7 @@ Over the last 2 quarters, ACPL's management has observed recurring stockouts in 
 
 - **SQL** — data extraction, aggregation, KPI queries
 - **Python** (pandas, statsmodels/Prophet) — diagnostic analysis and time-series forecasting
-- **Power BI** — dashboards for descriptive and prescriptive views
+- **Power BI / Tableau** — dashboards for descriptive and prescriptive views
 - **Excel** — quick checks and stakeholder-facing summaries
 
 ## 🧭 Analysis Framework
@@ -37,22 +37,16 @@ This project follows a 4-step framework, moving from what happened to what shoul
 | **Predictive** | What might happen next? | Time-series forecasting (Prophet/statsmodels), trend + seasonality decomposition |
 | **Prescriptive** | What should be done? | Threshold-based order recommendations, dashboard, written action plan |
 
-## 📁 Project Structure
+## ✅ Progress
 
-```
-acpl-demand-forecasting/
-├── data/
-│   ├── raw/                  # cleaned CSVs (sourced from acpl-data-cleaning)
-│   └── data_dictionary.md
-├── sql/
-├── notebooks/
-├── dashboards/
-└── reports/
-```
+- [x] **Step 1: Descriptive Analysis** — see [`reports/01_descriptive_findings.md`](reports/01_descriptive_findings.md) for full findings. **Key results:** baseline of ~৳12.9 crore revenue over 24 months; synchronized seasonal spikes across all categories (April/June/December); Grocery dominates demand volume; ~96.25% PO fulfillment and ~15–16% stockout rate, both consistent across all 3 warehouses.
+- [ ] Step 2: Diagnostic Analysis
+- [ ] Step 3: Predictive Analysis
+- [ ] Step 4: Prescriptive Analysis
 
 ## 🔗 Related Repositories
 
-- [acpl-data-cleaning](https://github.com/suborno-insights/acpl-data-cleaning.git) — full documentation of the data cleaning process for this dataset
+- [acpl-data-cleaning](#) — full documentation of the data cleaning process for this dataset
 
 ---
 *Part of a 6-project analytics portfolio series based on ACPL. This is Project 1 of 6.*
