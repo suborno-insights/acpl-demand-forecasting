@@ -39,7 +39,7 @@ This project follows a 4-step framework, moving from what happened to what shoul
 
 ## ✅ Progress
 
-- [x] **Step 1: Descriptive Analysis** — see [`reports/01_descriptive_findings.md`](reports/01_descriptive_findings.md) for full findings. **Key results:** baseline of ~৳12.9 crore revenue over 24 months; synchronized seasonal spikes across all categories (April/June/December); Grocery dominates demand volume; ~96.25% PO fulfillment and ~15–16% stockout rate, both consistent across all 3 warehouses.
+- [x] **Step 1: Descriptive Analysis** — see [`DESCRIPTIVE_ANALYSIS_FINDINGS`](reports/01_descriptive_findings.md) for full findings. **Key results:** baseline of ~৳12.9 crore revenue over 24 months; synchronized seasonal spikes across all categories (April/June/December); Grocery dominates demand volume; ~96.25% PO fulfillment and ~15–16% stockout rate, both consistent across all 3 warehouses.
 - [ ] Step 2: Diagnostic Analysis
 - [ ] Step 3: Predictive Analysis
 - [ ] Step 4: Prescriptive Analysis
