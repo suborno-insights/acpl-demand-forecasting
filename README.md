@@ -39,10 +39,32 @@ This project follows a 4-step framework, moving from what happened to what shoul
 
 ## ✅ Progress
 
-- [x] **Step 1: Descriptive Analysis** — see [`DESCRIPTIVE_ANALYSIS_FINDINGS`](reports/01_descriptive_findings.md) for full findings. **Key results:** baseline of ~৳12.9 crore revenue over 24 months; synchronized seasonal spikes across all categories (April/June/December); Grocery dominates demand volume; ~96.25% PO fulfillment and ~15–16% stockout rate, both consistent across all 3 warehouses.
-- [ ] Step 2: Diagnostic Analysis
+- [x] **Step 1: Descriptive Analysis** — see [`reports/01_descriptive_findings.md`](reports/01_descriptive_findings.md) for full findings. Key results: baseline of ~৳12.9 crore revenue over 24 months; synchronized seasonal spikes across all categories (April/June/December); Grocery dominates demand volume; ~96.25% PO fulfillment and ~15–16% stockout rate, both consistent across all 3 warehouses.
+- [x] **Step 2: Diagnostic Analysis** — see [`reports/02_diagnostic_findings.md`](reports/02_diagnostic_findings.md) for full findings. Seasonality lift empirically confirmed at ~30-34% across all categories (peak months validated via z-score, not assumed); products classified as Growing (83) / Stable (41) / Declining (24) / Never Sold (32); root cause of the order-vs-demand gap found — order size/frequency per product is largely independent of actual demand (routine ordering, not data-driven), the single most actionable finding for Step 4. Also resolved 3 data-quality caveats flagged in Step 1: corrected PO fulfillment (~97.5%, up from a data-quality-distorted 96.25%), corrected stockout rate split by product sampling group (13.4% general catalog vs 17.6% risk-linked), and built a store-level stockout proxy using shipment delay/loss rate (added the `shipments` table specifically for this).
 - [ ] Step 3: Predictive Analysis
 - [ ] Step 4: Prescriptive Analysis
+
+## 📁 Project Structure
+
+```
+acpl-demand-forecasting/
+├── data/
+│   ├── raw/                          # cleaned CSVs (sourced from acpl-data-cleaning)
+│   └── data_dictionary.md
+├── sql/
+│   ├── 00_setup_notes.md             # wizard-import corruption bug + typo-fix journey
+│   ├── 01_fix_float_to_decimal.sql
+│   ├── 02_fix_purchase_orders_typo.sql
+│   ├── 03_foreign_keys.sql
+│   ├── 04_descriptive_analysis.sql   # Step 1 queries
+│   ├── 05_diagnostic_analysis.sql    # Step 2 queries
+│   └── 06_shipments_setup.sql        # shipments table added for Step 2 Investigation #6
+├── notebooks/
+├── dashboards/
+└── reports/
+    ├── 01_descriptive_findings.md    # Step 1 findings + flags for Step 2
+    └── 02_diagnostic_findings.md     # Step 2 findings
+```
 
 ## 🔗 Related Repositories
 
