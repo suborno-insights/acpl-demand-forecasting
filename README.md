@@ -41,7 +41,7 @@ This project follows a 4-step framework, moving from what happened to what shoul
 
 - [x] **Step 1: Descriptive Analysis** — see [`reports/01_descriptive_findings.md`](reports/01_descriptive_findings.md) for full findings. Key results: baseline of ~৳12.9 crore revenue over 24 months; synchronized seasonal spikes across all categories (April/June/December); Grocery dominates demand volume; ~96.25% PO fulfillment and ~15–16% stockout rate, both consistent across all 3 warehouses.
 - [x] **Step 2: Diagnostic Analysis** — see [`reports/02_diagnostic_findings.md`](reports/02_diagnostic_findings.md) for full findings. Seasonality lift empirically confirmed at ~30-34% across all categories (peak months validated via z-score, not assumed); products classified as Growing (83) / Stable (41) / Declining (24) / Never Sold (32); root cause of the order-vs-demand gap found — order size/frequency per product is largely independent of actual demand (routine ordering, not data-driven), the single most actionable finding for Step 4. Also resolved 3 data-quality caveats flagged in Step 1: corrected PO fulfillment (~97.5%, up from a data-quality-distorted 96.25%), corrected stockout rate split by product sampling group (13.4% general catalog vs 17.6% risk-linked), and built a store-level stockout proxy using shipment delay/loss rate (added the `shipments` table specifically for this).
-- [ ] Step 3: Predictive Analysis
+- [x] **Step 3: Predictive Analysis** — see [`reports/03_predictive_findings.md`](reports/03_predictive_findings.md) for full findings. 3-month-ahead (Jan-Mar 2026) revenue forecasts built per category using Prophet, validated via backtesting on held-out months. Reliability varies significantly by category (5.6% backtest error for Stationery vs. 28.5% for Home & Kitchen) — flagged as an important finding in itself, since forecasts shouldn't be trusted uniformly across categories. Grocery and Beverages (the categories named in the business problem) fall in the "Moderate" reliability tier. A known limitation is carried forward honestly: only 24 months of history means Prophet's yearly-seasonality decomposition is less stable than ideal (Prophet's own diagnostics flagged this), demonstrated concretely by a +58.8% single-month backtest error for Grocery in October.
 - [ ] Step 4: Prescriptive Analysis
 
 ## 📁 Project Structure
@@ -60,10 +60,12 @@ acpl-demand-forecasting/
 │   ├── 05_diagnostic_analysis.sql    # Step 2 queries
 │   └── 06_shipments_setup.sql        # shipments table added for Step 2 Investigation #6
 ├── notebooks/
+│   └── 01_demand_forecasting.ipynb   # Step 3: Prophet model, forecast + backtest
 ├── dashboards/
 └── reports/
     ├── 01_descriptive_findings.md    # Step 1 findings + flags for Step 2
-    └── 02_diagnostic_findings.md     # Step 2 findings
+    ├── 02_diagnostic_findings.md     # Step 2 findings
+    └── 03_predictive_findings.md     # Step 3 findings
 ```
 
 ## 🔗 Related Repositories
